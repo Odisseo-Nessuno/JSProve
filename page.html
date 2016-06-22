@@ -1,0 +1,89 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Armando Accardo">
+<meta name="GENERATOR" content="push.html Armando Accardo 01/2016">
+<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+<meta name="viewport"
+content="width=device-width,initial-scale=1,user-scalable=yes" />
+<title>Monitoraggio Live delle direttrici ferroviarie</title>
+<link rel="stylesheet" href="status.css" type="text/css" />
+<style type="text/css">
+<!--
+.style1 {font-size: 14px}
+
+.ttn {
+	display: none;
+	position: absolute;
+    z-index:1;
+    width:30%;
+    padding: 0;
+    margin-left:-90px;
+    margin-top: 10px;
+    background:  black;
+    color: white;
+    border:none;
+    text-align: center;
+}
+
+
+-->
+</style>
+<script type="text/javascript"
+src="push-data.js"></script>
+</head>
+<body bgcolor="#FFFFFF" background="images/tabellone_bkgnd.jpg"
+onload="fakeInvokeSSE()"><center>
+
+<table width="580" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td>
+
+<center><table width="500" border="0" cellspacing="0" cellpadding="0"
+id="navigation">
+<tr>
+<td height="45" align="center" nowrap="nowrap" class="navText"><a
+href="http://www.trenipendolari.it/index.html"><strong>Home</strong></a></td>
+<td height="45" align="center" nowrap="nowrap" class="navText"><a
+href="http://www.trenipendolari.it/info.html"><strong>Info</strong></a></td>
+<td height="45" align="center" nowrap="nowrap" class="navText"><a
+href="http://www.trenipendolari.it/cgi-bin/status"><strong>Stato
+Treni</strong></a></td>
+<td height="45" align="center" nowrap="nowrap" class="navText"><a
+href="http://www.trenipendolari.it/cgi-bin/ship"><strong>Stato Traghetti
+RFI</strong></a></td>
+<td height="45" align="center" nowrap="nowrap" class="navText"><a
+href="http://www.trenipendolari.it/cgi-bin/storico"><strong>Storico
+Treni</strong></a></td>
+</tr>
+</table></center>
+
+<center><table width=580 border=0 cellspacing=0 cellpadding=0>
+<tr>
+<td height="45" align="center" class="pageName">Push-Data:Test in
+progress</td>
+</tr>
+</table></center>
+<button id="fakeServer">FakeServerUpdate</button>
+
+<center>
+	<table id="output" width="80%" border=1 align="center" cellspacing=2 cellpadding=0 >
+        <tr bgcolor="#D3DCE6">
+            <th width="50" align="center" valign="middle"><span class="style1">Treno</span></th>
+            <th width="20" align="center" valign="middle"><span class="style1">Stato</span></th>
+            <th width="80" align="center" valign="middle"><span class="style1">Ritardo</span></th>
+            <th width="200" align="center" valign="middle"><span class="style1">Info</span></th>
+        </tr>
+
+	</table>
+</center>
+<p>&nbsp
+<hr>
+</p>
+
+<tr><td height="50" align="center" class="style1">&copy; 2013-2016 Armando
+Accardo - Coordinamento Provinciale Pendolari Pavesi</td></tr>
+</td></tr></table>
+</center>
+</body>
+</html>
