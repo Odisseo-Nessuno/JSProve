@@ -5,9 +5,11 @@ var allNewData=""
 
 var actionNameOn = "onmouseover"
 var actionNameOff = "onmouseleave"
+var className = "ttn"
 
+setActionNameByDevice()
 
-function fakeInvokeSSE(){
+ fakeInvokeSSE(){
 	document.getElementById("fakeServer").addEventListener("click",function(){
 		allNewData=JSON.parse(data)
 		if(allData==""){						
@@ -43,11 +45,11 @@ function updateRow(trainNumber,force){
 
 	switch(stato){
 		case 3:
-			var html =  '<div '+actionNameOn+'=show("'+trainNumber+'",1) '+actionNameOff+'=hide("'+trainNumber+'",1) >Treno in viaggio - dettagli</div><div class=ttn '+actionNameOn+'= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' </div> </td>'
+			var html =  '<div '+actionNameOn+'=show("'+trainNumber+'",1) '+actionNameOff+'=hide("'+trainNumber+'",1) >Treno in viaggio - dettagli</div><div class='+className+' '+actionNameOn+'= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' </div> </td>'
 			document.getElementById("INFO"+trainNumber).innerHTML=html
 		break;
 		case 1:
-			var html =  '<div '+actionNameOn+'=show("'+trainNumber+'",1) '+actionNameOff+'=hide("'+trainNumber+'",1) >Treno cancellato - dettagli</div><div class=ttn '+actionNameOn+'= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' </div> </td>'
+			var html =  '<div '+actionNameOn+'=show("'+trainNumber+'",1) '+actionNameOff+'=hide("'+trainNumber+'",1) >Treno cancellato - dettagli</div><div class='+className+' '+actionNameOn+'= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' </div> </td>'
 			document.getElementById("INFO"+trainNumber).innerHTML=html		
 		break;
 		default:
@@ -73,7 +75,7 @@ function getInternalData(trainNumber,field,array){
 
 function makeRow(trainNumber){
 	var htmlTooltipText = allNewData[trainNumber][0]["S1"]+" "+ allNewData[trainNumber][1]["P"]+" - "+allNewData[trainNumber][2]["S2"]+" "+allNewData[trainNumber][3]["A"]
-	var htmlTN =  '<td width="50" align="center" valign="middle"> <div '+actionNameOn+'=show("'+trainNumber+'",0) '+actionNameOff+'=hide("'+trainNumber+'",0) >'+trainNumber.substring(1)+'</div><div class=ttn '+actionNameOn+'= hide("'+trainNumber+'",0) id = tooltipTrain'+trainNumber+'>'+htmlTooltipText+' </div> </td>'
+	var htmlTN =  '<td width="50" align="center" valign="middle"> <div '+actionNameOn+'=show("'+trainNumber+'",0) '+actionNameOff+'=hide("'+trainNumber+'",0) >'+trainNumber.substring(1)+'</div><div class='+className+' '+actionNameOn+'= hide("'+trainNumber+'",0) id = tooltipTrain'+trainNumber+'>'+htmlTooltipText+' </div> </td>'
 	var htmlLED = '<td width="20" align="center" nowrap="nowrap" id=LED_PATH'+trainNumber+'></td>'
 	var htmlRIT = '<td width="80" align="center" valign="middle" id=RIT'+trainNumber+'></td>'
 	var htmlINFO  ="<td id=INFO"+trainNumber+"></td>"
