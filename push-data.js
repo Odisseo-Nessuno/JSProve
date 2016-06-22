@@ -111,7 +111,7 @@ function hide(trainNumber,flgInfo){
 function setActionNameByDevice(){
 	if(is_touch_device()){
 		actionNameOn="onclick"
-		document.body.addEventListener('onclick',function(mEvent){
+		document.addEventListener('onclick',function(){
 			if(IhateApple){
 				document.getElementById(IhateApple).style.display="none"
 			}
