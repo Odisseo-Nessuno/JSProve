@@ -107,7 +107,7 @@ function hide(trainNumber,flgInfo){
 function setActionNameByDevice(){
 	if(is_touch_device()){
 		actionNameOn="onclick"
-		actionNameOff="onblur"
+		actionNameOff="onChange"
 	}
 
 
