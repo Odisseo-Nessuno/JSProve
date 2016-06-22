@@ -6,7 +6,7 @@ var allNewData=""
 var actionNameOn = "onmouseover"
 var actionNameOff = "onmouseleave"
 
-
+var IhateApple
 
 function fakeInvokeSSE(){
 	document.getElementById("fakeServer").addEventListener("click",function(){
@@ -94,8 +94,12 @@ function doStuff(){
 function show(trainNumber,flgInfo){
 	if(flgInfo==0)
 		document.getElementById("tooltipTrain"+trainNumber).style.display="block"
-	else
+		IhateApple="tooltipTrainI"+trainNumber
+	else{
 		document.getElementById("tooltipTrainI"+trainNumber).style.display="block"
+		IhateApple="tooltipTrainI"+trainNumber
+	}
+
 }
 function hide(trainNumber,flgInfo){
 	if(flgInfo==0)
@@ -107,7 +111,11 @@ function hide(trainNumber,flgInfo){
 function setActionNameByDevice(){
 	if(is_touch_device()){
 		actionNameOn="onclick"
-		actionNameOff="onMouseOut"
+		document.body.addEventListener('mouseover',function(mEvent){
+			if(IhateApple){
+				document.getElementById(IhateApple).style.display="none"
+			}
+		},true);
 	}
 
 
