@@ -57,11 +57,11 @@ function updateRow(trainNumber,force){
 
 	switch(stato){
 		case 3:
-			var html =  '<div onmouseover=show("'+trainNumber+'",1) onmouseleave=hide("'+trainNumber+'",1) >Treno in viaggio - dettagli</div><div class='+className+' onmouseover= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' '+deviceText+'</div> </td>'
+			var html =  '<div onmouseover=show(event,"'+trainNumber+'",1) onmouseleave=hide("'+trainNumber+'",1) >Treno in viaggio - dettagli</div><div class='+className+' onmouseover= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' '+deviceText+'</div> </td>'
 			document.getElementById("INFO"+trainNumber).innerHTML=html
 		break;
 		case 1:
-			var html =  '<div '+actionNameOn+'=show("'+trainNumber+'",1) onmouseleave=hide("'+trainNumber+'",1) >Treno cancellato - dettagli</div><div class='+className+' onmouseover= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' '+deviceText+'</div> </td>'
+			var html =  '<div '+actionNameOn+'=show(event,"'+trainNumber+'",1,ev) onmouseleave=hide("'+trainNumber+'",1) >Treno cancellato - dettagli</div><div class='+className+' onmouseover= hide("'+trainNumber+'",1) id = tooltipTrainI'+trainNumber+'>'+getInternalData(trainNumber,"INFO",allNewData)+' '+deviceText+'</div> </td>'
 			document.getElementById("INFO"+trainNumber).innerHTML=html		
 		break;
 		default:
@@ -85,7 +85,7 @@ function getInternalData(trainNumber,field,array){
 
 function makeRow(trainNumber){
 	var htmlTooltipText = allNewData[trainNumber][0]["S1"]+" "+ allNewData[trainNumber][1]["P"]+" - "+allNewData[trainNumber][2]["S2"]+" "+allNewData[trainNumber][3]["A"]
-	var htmlTN =  '<td width="50" align="center" valign="middle"> <div onmouseover=show("'+trainNumber+'",0) onmouseleave=hide("'+trainNumber+'",0) >'+trainNumber.substring(1)+'</div><div class='+className+' onmouseover= hide("'+trainNumber+'",0) id = tooltipTrain'+trainNumber+'>'+htmlTooltipText+' '+deviceText+'</div> </td>'
+	var htmlTN =  '<td width="50" align="center" valign="middle"> <div onmouseover=show(event,"'+trainNumber+'",0) onmouseleave=hide("'+trainNumber+'",0) >'+trainNumber.substring(1)+'</div><div class='+className+' onmouseover= hide("'+trainNumber+'",0) id = tooltipTrain'+trainNumber+'>'+htmlTooltipText+' '+deviceText+'</div> </td>'
 	var htmlLED = '<td width="20" align="center" nowrap="nowrap" id=LED_PATH'+trainNumber+'></td>'
 	var htmlRIT = '<td width="80" align="center" valign="middle" id=RIT'+trainNumber+'></td>'
 	var htmlINFO  ="<td id=INFO"+trainNumber+"></td>"
@@ -102,7 +102,8 @@ function doStuff(){
     }
 }
 
-function show(trainNumber,flgInfo){
+function show(event,trainNumber,flgInfo){
+	event.stopPropagation();
 	if(flgInfo==0)
 		document.getElementById("tooltipTrain"+trainNumber).style.display="block"
 	else
