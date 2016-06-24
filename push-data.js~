@@ -103,7 +103,7 @@ function doStuff(){
 }
 
 function show(event,trainNumber,flgInfo){
-	event.stopImmediatePropagation();
+	event.stopPropagation();
 	if(flgInfo==0)
 		document.getElementById("tooltipTrain"+trainNumber).style.display="block"
 	else
